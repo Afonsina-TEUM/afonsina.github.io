@@ -1,11 +1,13 @@
 ---
 import { contacts } from "db";
+
+let brasaoHeaderSrc = import.meta.env.PUBLIC_DEFAULT_HEADER;
 ---
 
 <footer class="footer place-content-around md:grid-rows-2 lg:grid-rows-1 p-10 bg-neutral text-xl text-zinc-200">
   <div>
     <img
-      src="/assets/images/brasao-footer.webp"
+      src={brasaoHeaderSrc}
       loading="lazy"
       class="max-w-xs"
       alt="brasao"

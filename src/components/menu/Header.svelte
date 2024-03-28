@@ -4,6 +4,8 @@
 	import type { Navigation as NavigationType } from "db";
 
 	export let navigation: NavigationType[];
+
+	let brasaoHeaderSrc = import.meta.env.PUBLIC_DEFAULT_HEADER;
 </script>
 
 <header class="fixed z-navbar">
@@ -15,7 +17,7 @@
 			<div class="flex-1">
 				<a href="/">
 					<img
-						src="/assets/images/brasao-header.webp"
+						src={brasaoHeaderSrc}
 						loading="lazy"
 						alt="brasao"
 						class="h-24 w-42"

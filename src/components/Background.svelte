@@ -1,5 +1,5 @@
 <script lang="ts">
-	const backgroundImage: string = "/assets/images/background.webp";
+	const backgroundImage: string = import.meta.env.PUBLIC_DEFAULT_BACKGROUND
 	const backgroundStyle: string =
 		"background-image: url(" + backgroundImage + ");";
 </script>
