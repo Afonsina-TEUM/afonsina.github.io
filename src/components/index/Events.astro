@@ -1,0 +1,143 @@
+---
+import { getNextEvents } from "googleapi";
+import type { EventRaw, Events, Event } from "googleapi";
+
+let eventsRaw: EventRaw[] = await getNextEvents?.().then((events) => {
+	return events;
+}).catch((error) => {
+	return error;
+})
+
+function padTo2Digits(num: number) {
+  return num.toString().padStart(2, '0');
+}
+
+// 👇️ format as "YYYY-MM-DD hh:mm:ss"
+// You can tweak the format easily
+function formatDate(date: Date, type: string) {
+	let result = '';
+	switch (type) {
+		case 'year':
+			result = date.getFullYear().toString();
+			break;
+		case 'month':
+			result = getMonthName(padTo2Digits(date.getMonth() + 1));
+			break;
+		case 'day':
+			result = padTo2Digits(date.getDate());
+			break;
+	}
+
+	return result;
+}
+
+function getMonthName(month: string) {
+	let result = '';
+
+	switch (month) {
+		case '01':
+			result = 'Jan';
+			break;
+		case '02':
+			result = 'Fev';
+			break;
+		case '03':
+			result = 'Mar';
+			break;
+		case '04':
+			result = 'Abr';
+			break;
+		case '05':
+			result = 'Mai';
+			break;
+		case '06':
+			result = 'Jun';
+			break;
+		case '07':
+			result = 'Jul';
+			break;
+		case '08':
+			result = 'Ago';
+			break;
+		case '09':
+			result = 'Set';
+			break;
+		case '10':
+			result = 'Out';
+			break;
+		case '11':
+			result = 'Nov';
+			break;
+		case '12':
+			result = 'Dez';
+			break;
+	}
+
+	return result;
+}
+
+function formatHours(date: Date) {
+	return (
+		[
+			padTo2Digits(date.getHours()),
+			padTo2Digits(date.getMinutes())
+		].join(':')
+	);
+}
+
+const events: Events = eventsRaw.map((event: EventRaw): Event => {
+	let isOneDay = false;
+	let time = '';
+	let days: any = [];
+	let months: any = [];
+	let years: any = [];
+
+	if (event.start.date && event.end.date) {
+		let startDate = new Date(event.start.date);
+		let endDate = new Date(event.end.date);
+
+		if (days.indexOf(formatDate(startDate, 'day')) === -1) days.push(formatDate(startDate, 'day'))
+		if (months.indexOf(formatDate(startDate, 'month')) === -1) months.push(formatDate(startDate, 'month'))
+		if (years.indexOf(formatDate(startDate, 'year')) === -1) years.push(formatDate(startDate, 'year'))
+
+		if (days.indexOf(formatDate(endDate, 'day')) === -1) days.push(formatDate(endDate, 'day'))
+		if (months.indexOf(formatDate(endDate, 'month')) === -1) months.push(formatDate(endDate, 'month'))
+		if (years.indexOf(formatDate(endDate, 'year')) === -1) years.push(formatDate(endDate, 'year'))
+	}
+
+	if (!event.start.date && event.start.dateTime) {
+		isOneDay = true;
+		let startDate = new Date(event.start.dateTime);
+
+		days.push(formatDate(startDate, 'day'));
+		months.push(formatDate(startDate, 'month'));
+		years.push(formatDate(startDate, 'year'));
+
+		time = formatHours(startDate);
+	}
+
+	return {
+			location: event.location ?? '',
+			title: event.summary,
+			isOneDay: isOneDay,
+			days: days,
+			months: months,
+			years: years,
+			time: time
+	}
+})
+
+import EventsComponent from "@/components/events/Events.svelte";
+---
+
+<!-- Next Events ================================================== -->
+<section id="events">
+	<div class="hero min-h-screen">
+    <div class="hero-content flex-col">
+			<h1 class="text-white text-2xl font-bold">Próximos eventos: </h1>
+			<!-- component -->
+
+			<EventsComponent client:load events={events} />
+		</div>
+	</div>
+</section>
