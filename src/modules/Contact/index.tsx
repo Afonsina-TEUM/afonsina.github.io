@@ -13,13 +13,12 @@ export const Contact: FC = () => {
                             variant="background-text"
                             bgText="Phone"
                             boxAsLink={true}
-                            href="tel:+52 123 233 421"
+                            href="tel:+351 912 978 513"
                             target="_blank"
                         >
-                            <h3>+52 123 233 421</h3>
+                            <h3>+351 912 978 513</h3>
                             <p>
-                                you can call me if you have any questions or
-                                just want to say hi
+                                Magister - Nuno Fernandes
                             </p>
                         </TextBox>
                     </FadeIn>
@@ -28,22 +27,19 @@ export const Contact: FC = () => {
                             variant="background-text"
                             bgText="Email"
                             boxAsLink={true}
-                            href="mailto:youremail@gmail.com"
+                            href="mailto:tunaafonsina@gmail.com"
                             target="_blank"
                         >
-                            <h3>youremail@gmail.com</h3>
-                            <p>
-                                also you can write me an email if you have any
-                                questions
-                            </p>
+                            <h3>tunaafonsina@gmail.com</h3>
                         </TextBox>
                     </FadeIn>
                 </S.ContactBox>
                 <FadeIn delay={0.3}>
                     <TextBox variant="background-text" bgText="Address">
-                        <h3>Address</h3>
-                        <p>Some street 123, 12345 City, Country</p>
-                        <p>Office: Mystr street 321, 54321 City, Country</p>
+                        <h3>Morada</h3>
+                        <p>Rua de Francos</p>
+                        <p>Edifício AAUM - Lugar da Veiga</p>
+                        <p>4800-019 Guimarães</p>
                     </TextBox>
                 </FadeIn>
             </S.ContainerStyled>

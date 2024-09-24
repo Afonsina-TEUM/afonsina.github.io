@@ -17,13 +17,16 @@ export const Navigation: FC = () => {
                         <a href="/historia">História</a>
                     </li>
                     <li>
-                        <a href="/traje">O Traje</a>
+                        <a href="/traje">Traje</a>
                     </li>
                     <li>
-                        <a href="/brasao">O Brasão</a>
+                        <a href="/brasao">Brasão</a>
                     </li>
                     <li>
-                        <a href="/elementos">Elementos</a>
+                        <a href="/afonsinos">Afonsinos</a>
+                    </li>
+                    <li>
+                        <a href="/cidade-berco">Cidade Berço</a>
                     </li>
                     <li>
                         <a href="/contactos">Contactos</a>

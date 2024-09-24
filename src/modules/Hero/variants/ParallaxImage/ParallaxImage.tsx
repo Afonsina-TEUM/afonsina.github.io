@@ -19,7 +19,7 @@ export const ParallaxImage: FC<ParallaxImageProps> = ({ image, content }) => {
 
     return (
         <S.ParallaxImageStyled $bgImage={image}>
-            {content.title && content.paragraph && (
+            {(
                 <S.ParallaxImageContent>
                     {content.title && <h1>{content.title}</h1>}
                     {content.paragraph && <p>{content.paragraph}</p>}
