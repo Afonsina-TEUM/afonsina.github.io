@@ -1,29 +1,44 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
+import { FundacaoTuna, HeroSlider1, InfiniteImg1, InfiniteImg2 } from "@static/images";
+import { Footer } from "@modules/Footer";
 ---
 
-<ContainedWithTitle title="História da Tuna">
-  <img src="/assets/images/mascote_historica.webp" class="float-right ml-[10px] h-[45%] w-[45%] md:h-[30%] md:w-[30%] lg:h-[40%] lg:w-[40%]" />
-  <p class="pt-4">
-    Corria o mês de março de 1994, no emblemático “Café Óscar” em Guimarães,
-    quando um grupo de jovens estudantes da Universidade do Minho, decidiu dar
-    início a esta Mui Trovadora Tuna, a Afonsina - Tuna de Engenharia da
-    Universidade do Minho. O “Café Óscar” tornou-se depois a sua casa, graças
-    essencialmente ao Sr. António Castro e a sua esposa, que acolheram a
-    Afonsina como parte da Família.
-  </p>
-  <p class="pt-4">
-    Desde então tem vindo a percorrer o país e o mundo, carregando consigo as
-    cores da primeira bandeira portuguesa. Participando em diversos atividades,
-    desde saraus a encontros de tunas, passando pelos mais variados eventos
-    culturais a festivais de Tunas de grande prestígio, até à simples serenata
-    que nos enche o coração, a Afonsina tem vindo a somar quilómetros em prol da
-    música e da boémia.
-  </p>
-  <p class="pt-4">
-    Ao quinto ano da sua existência, a Afonsina realizou pela primeira vez o seu
-    festival, denominado "Cidade Berço". A cidade de Guimarães recebe, assim, um
-    leque diverso constituído por algumas das mais conceituadas Tunas
-    Universitárias do país.
-  </p>
-</ContainedWithTitle>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:visible
+            data={{
+                image: HeroSlider1.src,
+                content: {
+                    title: "História",
+                    paragraph:
+                        "A Afonsina é uma tuna académica, fundada em 1994, na Universidade do Minho, em Guimarães. A sua génese deve-se a um grupo de estudantes de Engenharia, que, inspirados pela música e pela tradição académica, decidiram criar um grupo musical que representasse a Universidade do Minho.",
+                },
+            }}
+        />
+
+        <Hero
+            heroType="textImage"
+            client:visible
+            data={{
+                image: {
+                    src: FundacaoTuna.src,
+                    width: 590,
+                    height: 300,
+                    alt: "Hero Image",
+                },
+                paragraph:
+                    `Corria o mês de março de 1994, no emblemático “Café Óscar” em Guimarães, quando um grupo de jovens estudantes da Universidade do Minho, decidiu dar início a esta Mui Trovadora Tuna, a Afonsina - Tuna de Engenharia da Universidade do Minho. O “Café Óscar” tornou-se depois a sua casa, graças essencialmente ao Sr. António Castro e a sua esposa, que acolheram a Afonsina como parte da Família.
+                    </br></br>Desde então tem vindo a percorrer o país e o mundo, carregando consigo as cores da primeira bandeira portuguesa. Participando em diversos atividades, desde saraus a encontros de tunas, passando pelos mais variados eventos culturais a festivais de Tunas de grande prestígio, até à simples serenata que nos enche o coração, a Afonsina tem vindo a somar quilómetros em prol da música e da boémia.
+                    </br></br>Ao quinto ano da sua existência, a Afonsina realizou pela primeira vez o seu festival, denominado "Cidade Berço". A cidade de Guimarães recebe, assim, um leque diverso constituído por algumas das mais conceituadas Tunas Universitárias do país.`,
+            }}
+        />
+    </main>
+    <Footer />
+</Layout>

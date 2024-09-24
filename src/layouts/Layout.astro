@@ -1,0 +1,38 @@
+---
+import { NormalizeCSS } from "../styles/normalize";
+import { Global } from "@emotion/react";
+import { Header } from "@modules/Header";
+import MetaConfig from "./MetaConfig.astro";
+
+interface Props {
+    title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <MetaConfig
+            title={title}
+            description={description}
+        />
+        <title>{title}</title>
+        <Global styles={NormalizeCSS} />
+
+        <script>
+            /**
+             * Add class to transition "overflow element" on page load to make it prettier
+             */
+            document.addEventListener("DOMContentLoaded", () => {
+                document.body.classList.add("hide-overflow");
+            });
+        </script>
+    </head>
+    <body>
+        <Header client:load />
+        <slot />
+    </body>
+</html>
