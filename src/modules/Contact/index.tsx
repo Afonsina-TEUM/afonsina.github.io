@@ -31,6 +31,7 @@ export const Contact: FC = () => {
                             target="_blank"
                         >
                             <h3>tunaafonsina@gmail.com</h3>
+                            <p>Email da Tuna</p>
                         </TextBox>
                     </FadeIn>
                 </S.ContactBox>

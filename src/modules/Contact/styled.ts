@@ -5,7 +5,7 @@ import { MediaQuery } from "@styles/mediaQuery";
 
 export const ContactStyled = styled.section`
     background: ${Theme.primary};
-    padding-top: 90px;
+    padding-top: 30px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     margin: -43px 0 90px;
