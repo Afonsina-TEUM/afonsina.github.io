@@ -3,10 +3,12 @@ import Logo from "./logo.webp";
 
 import HeroSlider1 from "./background.webp";
 
-import InfiniteImg1 from "./background.webp";
-import InfiniteImg2 from "./background.webp";
 // TODO: Adicionar foto da Fundação da Tuna
 import FundacaoTuna from "./background.webp";
+
+import Afonsino from "./mascote_tuno.webp";
+import Peao from "./mascote_peao.webp";
+import Piones from "./mascote_peao.webp";
 
 export const images = {
     logo: Logo,
@@ -62,6 +64,7 @@ export const Image: FC<ImageProps> = ({
 export {
     HeroSlider1,
     FundacaoTuna,
-    InfiniteImg1,
-    InfiniteImg2,
+    Afonsino,
+    Peao,
+    Piones
 };
