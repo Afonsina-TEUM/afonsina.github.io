@@ -21,22 +21,23 @@
     "astro": "^4.5.8",
     "axios": "^1.6.8",
     "eslint": "^8.20.0",
+    "eslint-plugin-astro": "^0.15.0",
     "gsap": "^3.12.5",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.1.2",
     "react-device-detect": "^2.2.3",
     "react-hook-form": "^7.51.3",
-    "eslint-plugin-astro": "^0.15.0",
     "sitemap": "^7.1.1",
-    "prettier": "^2.7.1",
     "swiper": "^11.1.1",
     "typescript": "^5.4.3",
     "vite-plugin-compression": "^0.5.1",
-    "prettier-plugin-astro": "^0.1.2",
     "zod": "^3.22.4"
   },
   "dependencies": {
     "@types/aos": "^3.0.7",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.19.1",
+    "framer-motion": "^11.5.6",
     "postcss": "^8.4.19"
   }
 }

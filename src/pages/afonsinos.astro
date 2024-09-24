@@ -1,0 +1,28 @@
+---
+import { CidadeBercoBG } from "@static/images";
+import Layout from "../layouts/Layout.astro";
+import { Afonsinos as AfonsinosModule } from "@modules/Afonsinos";
+import { Hero } from "@modules/Hero";
+import { Footer } from "@modules/Footer";
+---
+
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:load
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "Afonsinos"
+                },
+            }}
+        />
+        
+        <AfonsinosModule client:load />
+    </main>
+    <Footer />
+</Layout>
