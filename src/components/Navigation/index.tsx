@@ -20,6 +20,9 @@ export const Navigation: FC = () => {
                         <a href="/traje">O Traje</a>
                     </li>
                     <li>
+                        <a href="/brasao">O Brasão</a>
+                    </li>
+                    <li>
                         <a href="/elementos">Elementos</a>
                     </li>
                     <li>

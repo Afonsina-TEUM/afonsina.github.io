@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Hero } from "@modules/Hero";
-import { FundacaoTuna, HeroSlider1 } from "@static/images";
+import { CidadeBercoBG } from "@static/images";
 import { Footer } from "@modules/Footer";
 ---
 
@@ -14,7 +14,7 @@ import { Footer } from "@modules/Footer";
             heroType="ParallaxImage"
             client:visible
             data={{
-                image: HeroSlider1.src,
+                image: CidadeBercoBG.src,
                 content: {
                     title: "História",
                     paragraph:
@@ -28,7 +28,7 @@ import { Footer } from "@modules/Footer";
             client:visible
             data={{
                 image: {
-                    src: FundacaoTuna.src,
+                    src: CidadeBercoBG.src,
                     width: 590,
                     height: 300,
                     alt: "Hero Image",

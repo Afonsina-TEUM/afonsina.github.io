@@ -1,10 +1,9 @@
 import { type FC } from "react";
-import Logo from "./logo.webp";
 
-import HeroSlider1 from "./background.webp";
+import Logo from "./logo.webp";
+import CidadeBercoBG from "./backgrounds/cidade_berco.webp";
 
 // TODO: Adicionar foto da Fundação da Tuna
-import FundacaoTuna from "./background.webp";
 
 import Afonsino from "./mascote_tuno.webp";
 import Peao from "./mascote_peao.webp";
@@ -62,8 +61,8 @@ export const Image: FC<ImageProps> = ({
 
 // default export of the images
 export {
-    HeroSlider1,
-    FundacaoTuna,
+    Logo,
+    CidadeBercoBG,
     Afonsino,
     Peao,
     Piones
