@@ -29,18 +29,15 @@ import contactsRaw from "./data/contacts.json";
 export const contacts: Contacts = contactsRaw as Contacts;
 
 // afonsino filters
-export interface Geracao {
-	geracao: number;
-	elementos: Array<string>;
+export interface Generation {
+	date: number;
+	afonsinos: Array<string>;
 }
 export interface AfonsinoFilters {
-	magisters: any;
-	ensaiadores: any;
-	geracoes: Array<Geracao>;
+	generations: Array<Generation>;
 }
 import afonsinoFiltersRaw from "./data/afonsino_filters.json";
-export const afonsinoFilters: AfonsinoFilters =
-	afonsinoFiltersRaw as AfonsinoFilters;
+export const afonsinoFilters: AfonsinoFilters = afonsinoFiltersRaw as AfonsinoFilters;
 
 // cidade berco
 function imgLocation(image: string): string {
@@ -88,7 +85,7 @@ export const afonsinos: Afonsinos = Object.fromEntries(
 			"./data/afonsinos/".length,
 			-".json".length
 		);
-		return [newKey, { imagem: `/assets/images/tunos/${newKey}.jpg`, ...value }];
+		return [newKey, { imagem: `/images/tunos/${newKey}.jpg`, ...value }];
 	})
 );
 

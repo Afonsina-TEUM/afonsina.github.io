@@ -1,34 +1,27 @@
 import React from 'react';
-import { GalleryContainer, People, PersonCard } from './styled';
-
-interface Person {
-  name: string;
-  image: string;
-  info: string;
-}
+import { GalleryContainer, GenerationLabel, Afonsinos, AfonsinoCard } from './styled';
+import type { Afonsino } from '../../../../../db';
 
 interface GalleryProps {
-  people: Person[];
-  setSelectedPerson: (person: Person) => void;
+    afonsinos: Afonsino[];
+    setSelectedAfonsino: (person: Afonsino) => void;
+    generationLabel: string;
 }
 
-const Gallery: React.FC<GalleryProps> = ({ people, setSelectedPerson }) => {
-  if (people.length === 0) return null;
-
-  return (
-    <GalleryContainer>
-      <People>
-        {people.map((person) => (
-          <PersonCard key={person.name} onClick={() => setSelectedPerson(person)}>
-            {
-              person.image !== '' ? <img src={person.image} alt={person.name} /> : null
-            }
-            <p>{person.name}</p>
-          </PersonCard>
-        ))}
-      </People>
-    </GalleryContainer>
-  );
+const Gallery: React.FC<GalleryProps> = ({ afonsinos, setSelectedAfonsino, generationLabel }) => {
+    return (
+        <GalleryContainer>
+            <GenerationLabel>{generationLabel}</GenerationLabel> {}
+            <Afonsinos>
+                {afonsinos.map((afonsino) => (
+                    <AfonsinoCard key={afonsino.alcunha} onClick={() => setSelectedAfonsino(afonsino)}>
+                        <img src={afonsino.imagem} alt={afonsino.nome} />
+                        <p>{afonsino.alcunha}</p>
+                    </AfonsinoCard>
+                ))}
+            </Afonsinos>
+        </GalleryContainer>
+    );
 };
 
 export default Gallery;

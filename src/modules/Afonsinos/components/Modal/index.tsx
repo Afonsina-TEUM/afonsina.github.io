@@ -1,20 +1,14 @@
 import React from 'react';
 import { ModalOverlay, CloseButton } from './styled';
 import { motion } from 'framer-motion';
-
-interface Person {
-  name: string;
-  image: string;
-  info: string;
-}
-
+import type { Afonsino } from '../../../../../db';
 interface ModalProps {
-  person: Person | null; // Permitir null
+  afonsino: Afonsino | null;
   closeModal: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ person, closeModal }) => {
-  if (!person) return null; // Não renderiza se não houver pessoa
+const Modal: React.FC<ModalProps> = ({ afonsino, closeModal }) => {
+  if (!afonsino) return null;
 
   const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
@@ -37,8 +31,8 @@ const Modal: React.FC<ModalProps> = ({ person, closeModal }) => {
         }}
       >
         <CloseButton onClick={closeModal}>&times;</CloseButton>
-        <h2>{person.name}</h2>
-        <p>{person.info}</p>
+        <h2>{afonsino.alcunha}</h2>
+        <p>{afonsino.curso}</p>
       </motion.div>
     </ModalOverlay>
   );

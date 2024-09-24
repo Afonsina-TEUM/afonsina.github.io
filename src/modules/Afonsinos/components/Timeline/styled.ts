@@ -4,16 +4,24 @@ const yearFactor = 20;
 
 export const TimelineContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column; /* Para adicionar o parágrafo abaixo dos botões */
+  align-items: center; /* Centraliza os itens */
   padding: 20px;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões se movam para a linha seguinte */
+  justify-content: center; /* Centraliza os botões */
+  gap: 20px; /* Espaçamento maior entre os botões */
+  position: relative; /* Para alinhar as linhas de progresso corretamente */
+`;
+
 export const StepCircle = styled.div<{ active: boolean, selected: boolean }>`
-  width: 40px;
-  height: 40px;
-  padding: 30px 30px;
-  border-radius: 45%;
+  width: 50px;
+  height: 50px;
+  padding: 10px; /* Mantendo o preenchimento */
+  border-radius: 50%; /* Mudança para círculo perfeito */
   background-color: ${({ active }) => (active ? '#c16c45' : '#ccc')};
   color: white;
   display: flex;
@@ -31,4 +39,6 @@ export const ProgressLine = styled.div<{ active: boolean, yearDifference: number
   height: 4px;
   background-color: ${({ active }) => (active ? '#c16c45' : '#ccc')};
   transition: background-color 0.3s;
+  align-self: center; /* Centraliza a linha em relação aos círculos */
+  margin: -2px 0; /* Para centralizar visualmente entre os círculos */
 `;

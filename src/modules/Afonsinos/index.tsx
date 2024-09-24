@@ -1,75 +1,51 @@
-import { type FC, useState } from "react";
+import { useState, useEffect } from "react";
 import * as S from "./styled";
+import { afonsinoFilters, afonsinos as afonsinosDB, type Afonsino } from "../../../db";
+import Timeline from "./components/Timeline";
 import Gallery from "./components/Gallery";
 import Modal from "./components/Modal";
-import Timeline from "./components/Timeline";
 
-interface Person {
-    name: string;
-    image: string;
-    info: string;
-  }
-
-interface Event {
-    date: string;
-    people: Person[];
-  }
-  
-  const events: Event[] = [
-    {
-      date: '1994',
-      people: [
-        { name: 'Maria Rodrigues', image: '', info: 'João Silva nasceu em 1990.' },
-        { name: 'asdasd asd', image: '', info: 'Maria Santos começou a trabalhar em 1990.' },
-      ],
-    },
-    {
-      date: '1996',
-      people: [
-        { name: 'João Silva', image: '', info: 'João Silva nasceu em 1990.' },
-        { name: 'Maria Santos', image: '', info: 'Maria Santos começou a trabalhar em 1990.' },
-      ],
-    },
-    {
-      date: '1997',
-      people: [
-        { name: 'João Silva', image: '', info: 'João Silva nasceu em 1990.' },
-        { name: 'Maria Santos', image: '', info: 'Maria Santos começou a trabalhar em 1990.' },
-      ],
-    },
-    {
-      date: '2024',
-      people: [
-        { name: 'Carlos Pereira', image: '', info: 'Carlos Pereira fez sua primeira viagem em 2000.' },
-      ],
-    },
-    // Adicionar mais eventos conforme necessário
-];
-
-export const Afonsinos: FC = () => {
+export const Afonsinos: React.FC = () => {
     const [selectedDateIndex, setSelectedDateIndex] = useState<number | null>(null);
-    const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
+    const [selectedAfonsino, setSelectedAfonsino] = useState<any | null>(null); // Mude para um tipo mais específico se possível
+    const [afonsinos, setAfonsinos] = useState<Afonsino[]>([]); // Estado para armazenar as pessoas
+    const [generationLabel, setGenerationLabel] = useState<string>("");
 
     const handleDateSelect = (index: number) => {
         setSelectedDateIndex(index);
-        setSelectedPerson(null); // Reset selected person on date change
+        setSelectedAfonsino(null);
     };
 
-    const currentEvent = selectedDateIndex !== null ? events[selectedDateIndex] : null;
+    useEffect(() => {
+        if (selectedDateIndex !== null) {
+            const currentGeneration = afonsinoFilters.generations[selectedDateIndex];
+            const generationNumber = selectedDateIndex === 0 ? 0 : selectedDateIndex; // Define a geração
+            const generationName = generationNumber === 0 ? "Fundadores" : `${generationNumber}º Geração`; // Geração
+
+            setGenerationLabel(generationName);
+
+            const loadedAfonsinos = currentGeneration.afonsinos.map((name: string) => afonsinosDB[name]);
+            setAfonsinos(loadedAfonsinos);
+        }
+    }, [selectedDateIndex]);
 
     return (
         <S.AfonsinosStyled>
             <S.ContainerStyled>
                 <Timeline 
-                    events={events} 
+                    generations={afonsinoFilters.generations} 
                     selectedDateIndex={selectedDateIndex} 
                     onDateSelect={handleDateSelect} 
                 />
-                {currentEvent && (
-                    <Gallery people={currentEvent.people} setSelectedPerson={setSelectedPerson} />
+                {afonsinos.length > 0 && (
+                    <Gallery 
+                        afonsinos={afonsinos} 
+                        setSelectedAfonsino={setSelectedAfonsino}
+                        generationLabel={generationLabel} 
+                    />
                 )}
-                {selectedPerson && (
-                    <Modal person={selectedPerson} closeModal={() => setSelectedPerson(null)} />
+                {selectedAfonsino && (
+                    <Modal afonsino={selectedAfonsino} closeModal={() => setSelectedAfonsino(null)} />
                 )}
             </S.ContainerStyled>
         </S.AfonsinosStyled>
