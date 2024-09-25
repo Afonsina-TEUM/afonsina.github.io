@@ -34,6 +34,8 @@ export interface Generation {
 	afonsinos: Array<string>;
 }
 export interface AfonsinoFilters {
+	magisters: Array<string>;
+	ensaiadores: Array<string>;
 	generations: Array<Generation>;
 }
 import afonsinoFiltersRaw from "./data/afonsino_filters.json";
@@ -77,6 +79,10 @@ const afonsinosRaw = import.meta.glob<AfonsinoRaw>("./data/afonsinos/*.json", {
 });
 export interface Afonsino extends AfonsinoRaw {
 	imagem: string;
+	isEnsaiador: boolean;
+	lastEnsaiador?: boolean;
+	isMagister?: boolean;
+	lastMagister?: boolean;
 }
 export type Afonsinos = Record<string, Afonsino>;
 export const afonsinos: Afonsinos = Object.fromEntries(
@@ -85,7 +91,21 @@ export const afonsinos: Afonsinos = Object.fromEntries(
 			"./data/afonsinos/".length,
 			-".json".length
 		);
-		return [newKey, { imagem: `/images/tunos/${newKey}.jpg`, ...value }];
+
+		const isEnsaiador = afonsinoFilters.ensaiadores.includes(newKey);
+		const isMagister = afonsinoFilters.magisters.includes(newKey);
+
+		return [
+		newKey, 
+		{ 
+			imagem: `/images/tunos/${newKey}.jpg`,
+			isEnsaiador: isEnsaiador,
+			lastEnsaiador: isEnsaiador && newKey === afonsinoFilters.ensaiadores[afonsinoFilters.ensaiadores.length - 1],
+			isMagister: isMagister,
+			lastMagister: isMagister && newKey === afonsinoFilters.magisters[afonsinoFilters.magisters.length - 1],
+			...value
+		}
+		];
 	})
 );
 

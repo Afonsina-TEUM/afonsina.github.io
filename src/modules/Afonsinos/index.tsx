@@ -75,7 +75,7 @@ export const Afonsinos: React.FC = () => {
                 </FadeIn>
                 {afonsinos.length > 0 && (
                     <Gallery 
-                        afonsinos={afonsinos} 
+                        afonsinos={afonsinos}
                         setSelectedAfonsino={(afonsino) => {
                             setSelectedAfonsino(afonsino);
                             setIsModalOpen(true); // Open modal when selecting an Afonsino

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ModalOverlay, CloseButton, ModalContent, ModalImage, ModalHeader, ModalText } from './styled';
 import { motion } from 'framer-motion';
 import type { Afonsino } from '../../../../../db';
+import { Badge } from '@components/Badge';
 
 interface ModalProps {
   afonsino: Afonsino | null;
@@ -54,6 +55,16 @@ const Modal: React.FC<ModalProps> = ({ afonsino, closeModal, afonsinos, setSelec
           <CloseButton onClick={closeModal}>&times;</CloseButton>
           <ModalImage src={afonsino.imagem} alt={afonsino.nome} />
           <ModalHeader>
+            {afonsino.isEnsaiador && (
+                <Badge style={{ backgroundColor: afonsino.lastEnsaiador ? 'green' : 'gray' }}>
+                    {afonsino.lastEnsaiador ? 'Ensaiador (Atual)' : 'Ensaiador'}
+                </Badge>
+            )}
+            {afonsino.isMagister && (
+                <Badge style={{ backgroundColor: afonsino.lastMagister ? 'green' : 'gray' }}>
+                    {afonsino.lastMagister ? 'Magister (Atual)' : 'Magister'}
+                </Badge>
+            )}
             {afonsino.nome}&nbsp;
             <span style={{ whiteSpace: 'nowrap' }}>
               ({afonsino.alcunha})

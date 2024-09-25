@@ -1,7 +1,8 @@
 import React from 'react';
 import { GalleryContainer, GenerationLabel, Afonsinos, AfonsinoCard } from './styled';
-import type { Afonsino } from '../../../../../db';
+import { type Afonsino } from '../../../../../db';
 import { FadeIn } from '@utils/animations/FadeIn';
+import { Badge } from '@components/Badge';
 
 interface GalleryProps {
     afonsinos: Afonsino[];
@@ -20,6 +21,16 @@ const Gallery: React.FC<GalleryProps> = ({ afonsinos, setSelectedAfonsino, gener
                     <AfonsinoCard key={afonsino.alcunha} onClick={() => setSelectedAfonsino(afonsino)}>
                         <img src={afonsino.imagem} alt={afonsino.nome} />
                         <p>{afonsino.alcunha}</p>
+                        {afonsino.isEnsaiador && (
+                            <Badge style={{ backgroundColor: afonsino.lastEnsaiador ? 'green' : '' }}>
+                                {afonsino.lastEnsaiador ? 'Ensaiador (Atual)' : 'Ensaiador'}
+                            </Badge>
+                        )}
+                        {afonsino.isMagister && (
+                            <Badge style={{ backgroundColor: afonsino.lastMagister ? 'green' : '' }}>
+                                {afonsino.lastMagister ? 'Magister (Atual)' : 'Magister'}
+                            </Badge>
+                        )}
                     </AfonsinoCard>
                 ))}
                 </Afonsinos>

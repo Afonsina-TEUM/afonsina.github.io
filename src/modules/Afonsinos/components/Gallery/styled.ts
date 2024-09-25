@@ -26,6 +26,7 @@ export const AfonsinoCard = styled.div`
   text-align: center;
   flex: 1 1 150px;
   max-width: 200px;
+  margin-bottom: 10px;
 
   img {
     width: 120px;
@@ -40,5 +41,9 @@ export const AfonsinoCard = styled.div`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  p {
+    margin: 5px 0 0;
   }
 `;
