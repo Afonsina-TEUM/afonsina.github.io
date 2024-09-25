@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const GalleryContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   gap: 20px;
 `;
 
@@ -27,9 +28,17 @@ export const AfonsinoCard = styled.div`
   max-width: 200px;
 
   img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 40%;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &:hover img {
+    transform: scale(1.2);
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
