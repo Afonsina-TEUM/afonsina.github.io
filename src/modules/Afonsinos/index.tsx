@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as S from "./styled";
 import { afonsinoFilters, afonsinos as afonsinosDB, type Afonsino } from "../../../db";
 import Timeline from "./components/Timeline";
@@ -63,16 +63,29 @@ export const Afonsinos: React.FC = () => {
         }
     }, [selectedDateIndex]);
 
+    const timelineRef = useRef<HTMLDivElement | null>(null);
+
+    const headerHeight = 160;
+
+    useEffect(() => {
+        if (selectedDateIndex !== null && timelineRef.current) {
+            const topPosition = timelineRef.current.getBoundingClientRect().top + window.scrollY - headerHeight;
+            window.scrollTo({ top: topPosition, behavior: 'smooth' });
+        }
+    }, [selectedDateIndex]);
+
     return (
         <S.AfonsinosStyled>
             <S.ContainerStyled>
-                <FadeIn delay={0.5}>
-                    <Timeline 
-                        generations={afonsinoFilters.generations} 
-                        selectedDateIndex={selectedDateIndex} 
-                        onDateSelect={handleDateSelect} 
-                    />
-                </FadeIn>
+                <div ref={timelineRef}>
+                    <FadeIn delay={0.5}>
+                        <Timeline 
+                            generations={afonsinoFilters.generations} 
+                            selectedDateIndex={selectedDateIndex} 
+                            onDateSelect={handleDateSelect} 
+                        />
+                    </FadeIn>
+                </div>
                 {afonsinos.length > 0 && (
                     <Gallery 
                         afonsinos={afonsinos}
