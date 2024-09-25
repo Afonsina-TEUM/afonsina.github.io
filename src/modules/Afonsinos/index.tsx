@@ -11,7 +11,7 @@ export const Afonsinos: React.FC = () => {
     const [selectedAfonsino, setSelectedAfonsino] = useState<Afonsino | null>(null);
     const [afonsinos, setAfonsinos] = useState<Afonsino[]>([]);
     const [generationLabel, setGenerationLabel] = useState<string>("");
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false); // Track modal state
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const handleDateSelect = (index: number) => {
         setSelectedDateIndex(index);

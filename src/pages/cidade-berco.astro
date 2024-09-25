@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
+import { CidadeBercoBG } from "@static/images";
+import { Footer } from "@modules/Footer";
+import { CidadeBerco as CidadeBercoModule } from "@modules/CidadeBerco";
+---
+
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:visible
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "Cidade Berço",
+                    subtitle: "Festival de Tunas Académicas",
+                    paragraph:
+                        "O maior evento organizado pela Afonsina, é um festival de tunas académicas realizado na cidade de Guimarães. O festival encontra-se já na sua 17ª edição e tem contado com a presença de algumas das melhores tunas do Universo!",
+                },
+            }}
+        />
+
+        <CidadeBercoModule client:load />
+    </main>
+    <Footer />
+</Layout>

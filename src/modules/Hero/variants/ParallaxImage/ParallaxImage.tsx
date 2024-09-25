@@ -7,6 +7,7 @@ export type ParallaxImageProps = {
     image?: ImageProps["srcLocal"] | ImageProps["src"];
     content?: {
         title?: string;
+        subtitle?: string;
         paragraph?: string;
     };
 };
@@ -22,6 +23,7 @@ export const ParallaxImage: FC<ParallaxImageProps> = ({ image, content }) => {
             {(
                 <S.ParallaxImageContent>
                     {content.title && <h1>{content.title}</h1>}
+                    {content.title && <h4>{content.subtitle}</h4>}
                     {content.paragraph && <p>{content.paragraph}</p>}
                 </S.ParallaxImageContent>
             )}

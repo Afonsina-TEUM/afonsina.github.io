@@ -1,9 +1,10 @@
-import { Container } from "@components/Container";
 import styled from "@emotion/styled";
+
+import { Container } from "@components/Container";
 import { Theme } from "@styles/colors";
 import { MediaQuery } from "@styles/mediaQuery";
 
-export const AfonsinosStyled = styled.section`
+export const CidadeBercoStyled = styled.section`
     background: ${Theme.primary};
     padding-top: 30px;
     border-top-left-radius: 50px;

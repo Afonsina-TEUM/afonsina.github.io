@@ -41,10 +41,11 @@ export interface AfonsinoFilters {
 import afonsinoFiltersRaw from "./data/afonsino_filters.json";
 export const afonsinoFilters: AfonsinoFilters = afonsinoFiltersRaw as AfonsinoFilters;
 
-// cidade berco
-function imgLocation(image: string): string {
+export function imgLocation(image: string): string {
 	return `/assets/images/cidade_berco/${image}`;
 }
+
+// cidade berco
 export interface CB {
 	nome: string;
 	imagem: string;
@@ -54,12 +55,8 @@ export interface CB {
 	playlist?: string;
 	sponsors?: string
 }
-import cbRaw from "./data/cidade_berco.json";
-export const cbs: Array<CB> = (cbRaw as Array<CB>).map((cb: CB) => {
-	cb.imagem = imgLocation(cb.imagem);
-	if (cb.sponsors) {
-		cb.sponsors = imgLocation('sponsors/' + cb.sponsors);
-	}
+import cbsRaw from "./data/cidade_berco.json";
+export const cbs: Array<CB> = (cbsRaw as Array<CB>).map((cb: CB) => {
 	return cb;
 });
 
@@ -98,7 +95,7 @@ export const afonsinos: Afonsinos = Object.fromEntries(
 		return [
 		newKey, 
 		{ 
-			imagem: `/images/tunos/${newKey}.jpg`,
+			imagem: `/assets/images/tunos/${newKey}.jpg`,
 			isEnsaiador: isEnsaiador,
 			lastEnsaiador: isEnsaiador && newKey === afonsinoFilters.ensaiadores[afonsinoFilters.ensaiadores.length - 1],
 			isMagister: isMagister,
@@ -130,7 +127,7 @@ export interface EventMarketing {
 		firstMonth: string, // Event first month. Ex: Março
 		secondMonth: string // Event second month. Ex: Abril
 	},
-	imagePath: string, // Path to event image: Ex: /assets/images/cidade_berco/xvii.jpg
+	imagePath: string, // Path to event image: Ex: /assets/assets/images/cidade_berco/xvii.jpg
 	url: {
 		tickets: string, // Url redirection to event tickets. Ex: "https://oficina.bol.pt/Comprar/Bilhetes/120322-xvii_cidade_berco_festival_de_tunas_academicas-a_oficina_ciprl?fbclid=IwAR0IOnHv9TahXkyecPcgDcek0sZvDdF4neaIkIn4BvIewqpSnSYbBBYd4ps"
 		infos: string, // Url redirection to event informations. Ex: "https://fb.me/e/3fLz4dUdD"

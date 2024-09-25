@@ -6,7 +6,7 @@ import { Badge } from '@components/Badge';
 
 interface GalleryProps {
     afonsinos: Afonsino[];
-    setSelectedAfonsino: (person: Afonsino) => void;
+    setSelectedAfonsino: (afonsino: Afonsino) => void;
     generationLabel: string;
     selectedDateIndex: number | null;
 }

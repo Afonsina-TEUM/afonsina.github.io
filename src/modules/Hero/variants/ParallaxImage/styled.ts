@@ -44,6 +44,7 @@ export const ParallaxImageContent = styled.div`
     width: 100%;
     position: relative;
     z-index: 1;
+    margin-top: 40px;
 
     h1 {
         font-size: 90px;
@@ -57,6 +58,21 @@ export const ParallaxImageContent = styled.div`
         ${MediaQuery.max("lg")} {
             font-size: 50px;
             line-height: 50px;
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: ${Theme.primary};
+
+        ${MediaQuery.max("lg")} {
+            font-size: 16px;
+            line-height: 16px;
         }
     }
 
