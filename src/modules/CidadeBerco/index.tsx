@@ -21,7 +21,6 @@ export const CidadeBerco: React.FC = () => {
                         closeModal={() => {
                             setSelectedCB(null);
                         }} 
-                        setSelectedCB={setSelectedCB} 
                     />
                 )}
             </S.ContainerStyled>

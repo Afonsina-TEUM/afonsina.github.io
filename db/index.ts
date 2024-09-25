@@ -58,7 +58,7 @@ export interface CB {
 import cbsRaw from "./data/cidade_berco.json";
 export const cbs: Array<CB> = (cbsRaw as Array<CB>).map((cb: CB) => {
 	return cb;
-});
+}).reverse();
 
 // afonsinos
 interface AfonsinoRaw {
