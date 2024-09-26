@@ -17,11 +17,14 @@ export const ModalContent = styled.div`
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  max-width: 800px; // Aumentar a largura máxima se necessário
+  max-width: 800px;
   width: 100%;
   position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   margin-top: 40px;
+  overflow-x: hidden; // Impede o conteúdo de transbordar horizontalmente
+  overflow-y: auto;  // Permite rolagem vertical se necessário
+  max-height: 80vh;  // Limita a altura máxima da modal e adiciona rolagem se o conteúdo for muito longo
 `;
 
 export const ModalImage = styled.img`
@@ -43,11 +46,15 @@ export const ModalHeader = styled.h2`
 `;
 
 export const ModalText = styled.div`
-  text-align: left; // Alinhar o texto à esquerda
+  text-align: left;
   font-size: 16px;
   color: #555;
   line-height: 1.6;
   margin: 10px 0;
+  word-wrap: break-word; // Quebra palavras longas para evitar overflow horizontal
+  word-break: break-word; // Garante a quebra de palavras longas
+  white-space: normal; // Permite que o texto quebre linhas corretamente
+  overflow-wrap: break-word; // Quebra palavras muito longas
 
   strong {
     color: #333;

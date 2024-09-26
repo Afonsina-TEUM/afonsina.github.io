@@ -13,7 +13,7 @@ const Gallery: React.FC<GalleryProps> = ({ setSelectedCB }) => {
     return (
         <GalleryContainer>
             {cbs.map((cb, index) => (                
-                <Poster key={index} src={imgLocation('posters/' + cb.imagem)} alt={`Cidade Berço ${index + 1}`} onClick={() => setSelectedCB(cb)} />
+                <Poster key={index} src={imgLocation('posters/' + cb.imagem)} alt={`Cidade Berço ${index + 1}`} onClick={() => setSelectedCB(cb)} rectangular={cb.rectangular} />
             ))}
         </GalleryContainer>
     );

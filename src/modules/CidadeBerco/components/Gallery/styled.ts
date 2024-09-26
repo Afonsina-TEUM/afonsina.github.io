@@ -1,4 +1,9 @@
+// src/components/styled.ts
 import styled from "@emotion/styled";
+
+interface PosterProps {
+    rectangular?: boolean;
+}
 
 export const GalleryContainer = styled.div`
     display: flex;
@@ -7,27 +12,17 @@ export const GalleryContainer = styled.div`
     gap: 16px; // ajuste conforme necessário
 `;
 
-export const Poster = styled.img`
-    width: 100%;
-    max-width: 300px; // ajuste conforme necessário
-    border-radius: 8px; // para bordas arredondadas
+export const Poster = styled.img<PosterProps>`
+    height: 300px; // altura fixa para ambos os posters
+    width: ${({ rectangular }) => (rectangular ? 'auto' : '200px')};
 
-    img {
-        width: 120px;
-        height: 120px;
-        border-radius: 40%;
-        transition: transform 0.2s ease-in-out;
-    }
+    max-width: ${({ rectangular }) => (rectangular ? '400px' : '200px')};
+    object-fit: cover; // garante que a imagem preencha sem distorcer
+    border-radius: 8px; // bordas arredondadas
 
-    &:hover img {
-        transform: scale(1.2);
-    }
+    transition: transform 0.2s ease-in-out;
 
     &:hover {
         transform: scale(1.05);
-    }
-
-    p {
-        margin: 5px 0 0;
     }
 `;
