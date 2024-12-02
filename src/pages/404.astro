@@ -1,16 +1,43 @@
 ---
-import Default from "@/layouts/Default.astro";
+import { ContentSection } from "@modules/ContentSection";
+import Layout from "../layouts/Layout.astro";
+import { FadeIn } from "@utils/animations/FadeIn";
+import { Button } from "@components/Button";
 ---
 
-<Default>
-  <div class="hero min-h-screen">
-    <div class="hero-overlay"></div>
-    <div class="hero-content text-center text-white">
-      <div class="max-w-md">
-        <h1 class="text-9xl font-bold">404</h1>
-        <p class="py-6"><strong>Ups :(</strong></p>
-        <p>Nao encontramos essa pagina.</p>
-      </div>
-    </div>
-  </div>
-</Default>
+<Layout
+    title="404 | Page not found"
+    description="A página que procura não foi encontrada."
+>
+    <main class="page-content page-404">
+        <ContentSection
+            style={{
+                maxWidth: "600px",
+                margin: "0 auto",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "100%",
+            }}
+        >
+            <FadeIn client:visible>
+                <h1>Wooops - Pedimos desculpa! 404</h1>
+                <p>
+                    A página que procura não foi encontrada. <br />
+                    Possivelmente um dos nossos caloiros a deixou cair ou esqueceram-se dela no último festival.
+                </p>
+
+                <Button
+                    variant="secondary"
+                    showIcon={false}
+                    link="/"
+                    align="center"
+                >
+                    Voltar atrás
+                </Button>
+            </FadeIn>
+        </ContentSection>
+    </main>
+</Layout>

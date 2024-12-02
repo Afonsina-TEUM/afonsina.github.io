@@ -1,16 +1,28 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
-import { afonsinoFilters, afonsinos } from "db";
-import Afonsinos from "@/components/afonsinos/Afonsinos.svelte";
-
-const imageFallback: string = "/assets/images/tuno_head.webp"
-
-const imageTunos: string[] = Object.values(afonsinos).map((afonsino) => afonsino.imagem)
-
+import { CidadeBercoBG } from "@static/images";
+import Layout from "../layouts/Layout.astro";
+import { Afonsinos as AfonsinosModule } from "@modules/Afonsinos";
+import { Hero } from "@modules/Hero";
+import { Footer } from "@modules/Footer";
 ---
 
-<ContainedWithTitle title="Afonsinos" preloadImage={[imageFallback]} prefetchImage={imageTunos}>
-
-	<Afonsinos client:load afonsinos={afonsinos} afonsinoFilters={afonsinoFilters} imageFallback={imageFallback} />
-
-</ContainedWithTitle>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:load
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "Afonsinos"
+                },
+            }}
+        />
+        
+        <AfonsinosModule client:load />
+    </main>
+    <Footer />
+</Layout>

@@ -1,27 +1,28 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
-import { contacts } from "db";
+import { CidadeBercoBG } from "@static/images";
+import Layout from "../layouts/Layout.astro";
+import { Contact as ContactModule } from "@modules/Contact";
+import { Hero } from "@modules/Hero";
+import { Footer } from "@modules/Footer";
 ---
 
-<ContainedWithTitle title="Contactos">
-
-<div  class="pt-4 text-xl">
-  <p class="text-2xl mb-3" set:html={contacts.address}></p>
-  <h5 class="text-2xl">Email: </h5>
-  <p class="mb-3">
-      { contacts.email }
-  </p>
-  <h5 class="text-2xl">Telemóvel: </h5>
-  <p class="mb-3">
-      { contacts.mobile }
-  </p>
-</div>
-<br>
-<div class="grid grid-flow-row text-white text-xl">
-  <h3 class="text-3xl md:text-5xl my-3">Social</h3>
-  <a href={ contacts.facebook } target="_blank" class="link">Facebook</a>
-  <a href={ contacts.instagram } target="_blank" class="link">Instagram</a>
-  <a href={ contacts.spotify } target="_blank" class="link">Spotify</a>
-  <a href={ contacts.youtube } target="_blank" class="link">YouTube</a>
-</div>
-</ContainedWithTitle>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:load
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "Contactos",
+                    paragraph: "Se precisares de falar connosco, não hesites em contactar-nos."
+                },
+            }}
+        />
+        <ContactModule client:load />
+    </main>
+    <Footer />
+</Layout>

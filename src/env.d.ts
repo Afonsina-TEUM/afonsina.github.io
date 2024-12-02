@@ -1,4 +1,6 @@
 /// <reference types="astro/client" />
+/// <reference path="../.astro/types.d.ts" />
+/// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv {
     readonly PUBLIC_DEFAULT_IMAGE: string;

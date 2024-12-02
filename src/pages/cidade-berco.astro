@@ -1,25 +1,31 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
-import type { CB } from "db";
-import { cbs } from "db";
-import CidadeBerco from "@/components/CidadeBerco.svelte";
-
-const cbImages: string[] = cbs.map((cc: CB) => cc.imagem);
-
-const horizontalImage: string = cbs.find((cc: CB) => cc.rectangular === true)!.imagem;
-const verticalImage: string = cbs.find((cc: CB) => cc.rectangular !== true)!.imagem;
-
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
+import { CidadeBercoBG } from "@static/images";
+import { Footer } from "@modules/Footer";
+import { CidadeBerco as CidadeBercoModule } from "@modules/CidadeBerco";
 ---
 
-<ContainedWithTitle title="Cidade Berço" preloadImage={ [horizontalImage, verticalImage] } prefetchImage={ cbImages }>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:visible
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "Cidade Berço",
+                    subtitle: "Festival de Tunas Académicas",
+                    paragraph:
+                        "O maior evento organizado pela Afonsina, é um festival de tunas académicas realizado na cidade de Guimarães. O festival encontra-se já na sua 17ª edição e tem contado com a presença de algumas das melhores tunas do Universo!",
+                },
+            }}
+        />
 
-    <p  class="pt-4"> Cidade Berço - Festival de Tunas Académicas </p>
-    <p  class="pt-4">
-      O maior evento organizado pela Afonsina, é um festival de tunas académicas realizado na cidade de Guimarães.
-      O festival encontra-se já na sua { cbs.length }ª edição e tem contado com a presença de algumas das melhores tunas do Universo!
-    </p>
-    <br>
-
-		<CidadeBerco client:load horizontalFallback={horizontalImage} verticalFallback={verticalImage} cbs={ cbs } />
-
-</ContainedWithTitle>
+        <CidadeBercoModule client:load />
+    </main>
+    <Footer />
+</Layout>

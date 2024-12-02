@@ -1,46 +1,48 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
+import { Logo, CidadeBercoBG } from "@static/images";
+import { Footer } from "@modules/Footer";
 ---
 
-<ContainedWithTitle title="Brasão da Tuna">
-  <p class="pt-4">
-    O Brasão é constituído por quatro divisórias que representam e simbolizam a
-    razão e a origem da tuna:
-  </p>
-  <p class="pt-4">
-    <img
-      src="/assets/images/brasao-original.webp"
-      alt="Brasão Afonsino"
-      class="float-right h-[45%] w-[45%]"
-    />
-  </p>
-  <p class="pt-4">
-    No canto superior esquerdo encontra-se o livro e as espigas da
-    <strong>sabedoria</strong> que, como símbolos da nossa academia, representam
-    a nossa origem.
-  </p>
-  <p class="pt-4"></p>
-  <p class="pt-4">
-    No canto superior direito encontra-se uma cruz azul, símbolo das Cruzadas
-    lideradas por <strong>D. Afonso Henriques</strong>, primeiro Rei de
-    Portugal, que dão origem ao nome da nossa tuna;
-  </p>
-  <p class="pt-4"></p>
-  <p class="pt-4">
-    Na divisória do canto inferior direito encontra-se uma imagem de
-    <strong>N.ª Sra. da Oliveira</strong>, santa padroeira da nossa nobre
-    cidade. Vemos também representadas duas Quinas com 11 besantes, elementos
-    adicionados ao escudo por D. Afonso Henriques.
-  </p>
-  <p class="pt-4">
-    No canto inferior esquerdo, através de dois bandolins acompanhados pelo
-    símbolo máximo do traje da academia minhota, o <strong>Tricórnio</strong>,
-    simbolizamos a nossa inspiração maior pela criação da Tuna, representar a
-    nossa nobre Academia com a nossa paixão pela <strong>música</strong>.
-  </p>
-  <p class="pt-4"></p>
-  <p class="pt-4">
-    Na fita sob o brasão está inscrito o nome "Afonsina" com a cor de tijolo,
-    cor essa, representativa de <strong>Engenharia</strong>.
-  </p>
-</ContainedWithTitle>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:visible
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "O Brasão",
+                    paragraph:
+                        "O Brasão é constituído por quatro divisórias que representam e simbolizam a razão e a origem da tuna.",
+                },
+            }}
+        />
+
+        <Hero
+            heroType="textImage"
+            client:visible
+            data={{
+                
+                image: {
+                    src: Logo.src,
+                    width: 590,
+                    height: 300,
+                    alt: "Brasão",
+                },
+                title: "Brasão da Tuna",
+                paragraph:
+                    `No canto superior esquerdo encontra-se o livro e as espigas da sabedoria que, como símbolos da nossa academia, representam a nossa origem.
+                    <br></br>No canto superior direito encontra-se uma cruz azul, símbolo das Cruzadas lideradas por D. Afonso Henriques, primeiro Rei de Portugal, que dão origem ao nome da nossa tuna;
+                    <br></br>Na divisória do canto inferior direito encontra-se uma imagem de N.ª Sra. da Oliveira, santa padroeira da nossa nobre cidade. Vemos também representadas duas Quinas com 11 besantes, elementos adicionados ao escudo por D. Afonso Henriques.
+                    <br></br>No canto inferior esquerdo, através de dois bandolins acompanhados pelo símbolo máximo do traje da academia minhota, o Tricórnio, simbolizamos a nossa inspiração maior pela criação da Tuna, representar a nossa nobre Academia com a nossa paixão pela música.
+                    <br></br>Na fita sob o brasão está inscrito o nome "Afonsina" com a cor de tijolo, cor essa, representativa de Engenharia.`,
+            }}
+        />
+    </main>
+    <Footer />
+</Layout>

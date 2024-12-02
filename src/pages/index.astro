@@ -1,21 +1,30 @@
 ---
-import Default from "@/layouts/Default.astro";
-import About from "@/components/index/About.astro";
-import Home from "@/components/index/Home.astro";
-import EventMarketing from "@/components/index/EventMarketing.svelte";
+import { CidadeBercoBG } from "@static/images";
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
 ---
 
-<Default preloadImage={ [import.meta.env.PUBLIC_DEFAULT_TUNO] }>
-  <!-- EventMarketing ================================================== -->
-  <EventMarketing />
-  <!-- end EventMarketing -->
-
-	<!-- home ================================================== -->
-  <Home />
-  <!-- end home -->
-
-  <!-- about ================================================== -->
-  <About />
-  <!-- end about -->
-
-</Default>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            client:load
+            heroType="fullPageSlider"
+            data={[
+                {
+                    subtitle: "Tuna de Engenharia da Universidade do Minho",
+                    title: "Afonsina",
+                    background: CidadeBercoBG.src,
+                    paragraph:
+                        "Em março de 1994, estudantes da Universidade do Minho fundaram a Afonsina no “Café Óscar” em Guimarães. Desde então, a Tuna participa em eventos nacionais e internacionais e organiza o festival \"Cidade Berço\" com tunas de prestígio.",
+                    button: {
+                        text: "Sobre a tuna",
+                        link: "/historia",
+                    }
+                }
+            ]}
+        />
+    </main>
+</Layout>

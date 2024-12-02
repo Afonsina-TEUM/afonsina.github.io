@@ -1,61 +1,81 @@
 ---
-import ContainedWithTitle from "@/layouts/ContainedWithTitle.astro";
+import Layout from "../layouts/Layout.astro";
+import { Hero } from "@modules/Hero";
+import { Afonsino, Peao, Piones, CidadeBercoBG } from "@static/images";
+import { Footer } from "@modules/Footer";
 ---
 
-<ContainedWithTitle title="Traje da Tuna">
-  <p class="pt-4">
-    O traje da Afonsina - Tuna de Engenharia da Universidade do Minho tem como
-    base o traje académico da Universidade do Minho. Porém, algumas alterações
-    foram efetuadas de modo a identificar a tuna e os seus elementos de acordo com
-    a sua hierarquia. Importa também referir que a Afonsina tem como base a cor de
-    Engenharia (cor de tijolo).
-  </p>
-  <img
-    src="/assets/images/mascote_tuno.webp"
-    alt="mascote tuno"
-    class="float-right ml-[10px] w-[180px] h-[190px]"
-  />
-  <br>
-  <h2>Afonsinos</h2>
-  <p class="pt-4">
-    Em tudo igual ao traje académico diferindo apenas nos seguintes elementos, que
-    visam uma simbiose estética entre a cor e o traje, criando uma identidade
-    própria:<br />
-    - Substituição da cor das meias do traje académico para a cor de tijolo;<br />
-    - Adoção de um elemento, a que chamamos <em><strong>Pendericalho</strong></em
-    >, da cor de tijolo, que contém o emblema da Tuna.
-  </p>
-  <br>
-  <h2>Peões</h2>
-  <img
-    src="/assets/images/mascote_peao.webp"
-    alt="mascote peao"
-    class="float-right ml-[10px] w-[180px] h-[190px]"
-  />
-  <p class="pt-4">
-    Este traje pretende ser uma homenagem da Afonsina a D. Afonso Henriques, uma
-    vez que foi introduzida uma veste com uma <strong> cruz azul </strong>, que
-    simboliza a bandeira que ele carregou durante a sua reconquista. Para além
-    desta alteração, há também a remoção do casaco e do tricórnio do traje
-    académico.
-  </p>
-  <br>
-  <h2>Pioneses</h2>
-  <p class="pt-4">
-    Os Pioneses, são aqueles que ainda aspiram a ser Peões. Deste modo, têm de ser
-    muito bem tratadinhos. Por isso, usam:<br />
-    <strong>- Pijama</strong> - para se sentirem confortáveis e à vontade, tal
-    como estariam depois de chegarem à sua cama após uma bela noite do Enterro da
-    Gata;<br />
-    - <strong>Kit de viagens da Floribella</strong> - constituído por meias e
-    sapatilhas. Este kit serve para não haverem desculpas de atraso ou de cansaço,
-    visto que as meias e as sapatilhas são feitas num material extremamente
-    resistente, excepto quando se põe os pés no chão;<br />
-    - <strong>Cuecas e capa do Super Homem</strong> - as cuecas têm como função
-    enganarem as donzelas em relação ao dito cujo. A capa, serve de auxilio no voo
-    complicado,àrduo e longínquo mas motivador, que é o voo onde o
-    <em>check-in</em> faz-se como Pionés e o <em>check-out</em> já se efetua como
-    elemento oficial da Tuna, passando o viajante a Peão desta mui trovadora Tuna.
-    <br />
-  </p>
-</ContainedWithTitle>
+<Layout
+    title="Afonsina - Tuna de Engenharia da Universidade do Minho"
+    description="Tuna de Engenharia da Universidade do Minho"
+>
+    <main class="page-content">
+        <Hero
+            heroType="ParallaxImage"
+            client:visible
+            data={{
+                image: CidadeBercoBG.src,
+                content: {
+                    title: "O Traje",
+                    paragraph:
+                        "O traje da Afonsina - Tuna de Engenharia da Universidade do Minho tem como base o traje académico da Universidade do Minho. Porém, algumas alterações foram efetuadas de modo a identificar a tuna e os seus elementos de acordo com a sua hierarquia. Importa também referir que a Afonsina tem como base a cor de Engenharia (cor de tijolo).",
+                },
+            }}
+        />
+
+        <Hero
+            heroType="textImage"
+            client:visible
+            data={{
+                image: {
+                    src: Afonsino.src,
+                    width: 590,
+                    height: 300,
+                    alt: "Afonsino",
+                },
+                title: "Afonsinos",
+                paragraph:
+                    `Em tudo igual ao traje académico diferindo apenas nos seguintes elementos, que visam uma simbiose estética entre a cor e o traje, criando uma identidade própria:
+                    </br></br>- Substituição da cor das meias do traje académico para a cor de tijolo;
+                    </br></br>- Adoção de um elemento, a que chamamos Pendericalho, da cor de tijolo, que contém o emblema da Tuna.`,
+            }}
+        />
+
+        <Hero
+            heroType="textImage"
+            client:visible
+            data={{
+                switchPlaces: true,
+                image: {
+                    src: Peao.src,
+                    width: 590,
+                    height: 300,
+                    alt: "Peão",
+                },
+                title: "Peões",
+                paragraph:
+                    `Este traje pretende ser uma homenagem da Afonsina a D. Afonso Henriques, uma vez que foi introduzida uma veste com uma cruz azul , que simboliza a bandeira que ele carregou durante a sua reconquista. Para além desta alteração, há também a remoção do casaco e do tricórnio do traje académico.`,
+            }}
+        />
+
+        <Hero
+            heroType="textImage"
+            client:visible
+            data={{
+                image: {
+                    src: Piones.src,
+                    width: 590,
+                    height: 300,
+                    alt: "Pionés",
+                },
+                title: "Pioneses",
+                paragraph:
+                    `Os Pioneses, são aqueles que ainda aspiram a ser Peões. Deste modo, têm de ser muito bem tratadinhos. Por isso, usam:
+                    </br></br>- <b>Pijama</b> - para se sentirem confortáveis e à vontade, tal como estariam depois de chegarem à sua cama após uma bela noite do Enterro da Gata;
+                    </br></br>- <b>Kit de viagens da Floribella</b> - constituído por meias e sapatilhas. Este kit serve para não haverem desculpas de atraso ou de cansaço, visto que as meias e as sapatilhas são feitas num material extremamente resistente, excepto quando se põe os pés no chão;
+                    </br></br>- <b>Cuecas e capa do Super Homem</b> - as cuecas têm como função enganarem as donzelas em relação ao dito cujo. A capa, serve de auxilio no voo complicado,àrduo e longínquo mas motivador, que é o voo onde o check-in faz-se como Pionés e o check-out já se efetua como elemento oficial da Tuna, passando o viajante a Peão desta mui trovadora Tuna.`,
+            }}
+        />
+    </main>
+    <Footer />
+</Layout>

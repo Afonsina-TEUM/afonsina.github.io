@@ -1,10 +1,26 @@
 {
-  "magisters": null,
-  "ensaiadores": null,
-  "geracoes": [
+  "magisters": [
+    "capao",
+    "burrito",
+    "gaspar",
+    "misto",
+    "gayvota",
+    "bucesso",
+    "sir_tanejo",
+    "aseugarb",
+    "salto_pancha"
+  ],
+  "ensaiadores": [
+    "fintas",
+    "zefa_parreca",
+    "capao",
+    "cidade",
+    "plafond"
+  ],
+  "generations": [
     {
-      "geracao": 1994,
-      "elementos": [
+      "date": 1994,
+      "afonsinos": [
         "afonso",
         "botija",
         "camoes",
@@ -32,23 +48,23 @@
       ]
     },
     {
-      "geracao": 1995,
-      "elementos": [
+      "date": 1995,
+      "afonsinos": [
         "humbertui",
         "lennon",
         "mistas"
       ]
     },
     {
-      "geracao": 1997,
-      "elementos": [
+      "date": 1997,
+      "afonsinos": [
         "guei",
         "geloso"
       ]
     },
     {
-      "geracao": 1998,
-      "elementos": [
+      "date": 1998,
+      "afonsinos": [
         "cabaco",
         "cadente",
         "lobito",
@@ -58,8 +74,8 @@
       ]
     },
     {
-      "geracao": 1999,
-      "elementos": [
+      "date": 1999,
+      "afonsinos": [
         "brinco",
         "cogumelo",
         "estaca",
@@ -68,8 +84,8 @@
       ]
     },
     {
-      "geracao": 2000,
-      "elementos": [
+      "date": 2000,
+      "afonsinos": [
         "espanhol",
         "jardim",
         "peixinho",
@@ -79,8 +95,8 @@
       ]
     },
     {
-      "geracao": 2001,
-      "elementos": [
+      "date": 2001,
+      "afonsinos": [
         "3quartos",
         "baiao",
         "cruz",
@@ -89,8 +105,8 @@
       ]
     },
     {
-      "geracao": 2002,
-      "elementos": [
+      "date": 2002,
+      "afonsinos": [
         "nino",
         "dot",
         "hulk",
@@ -101,22 +117,22 @@
       ]
     },
     {
-      "geracao": 2003,
-      "elementos": [
+      "date": 2003,
+      "afonsinos": [
         "bejao",
         "claudiomiro",
         "petromax"
       ]
     },
     {
-      "geracao": 2004,
-      "elementos": [
+      "date": 2004,
+      "afonsinos": [
         "shaolin"
       ]
     },
     {
-      "geracao": 2005,
-      "elementos": [
+      "date": 2005,
+      "afonsinos": [
         "erri_poster",
         "esparguete",
         "maestro",
@@ -126,14 +142,14 @@
       ]
     },
     {
-      "geracao": 2006,
-      "elementos": [
+      "date": 2006,
+      "afonsinos": [
         "vermelhinho"
       ]
     },
     {
-      "geracao": 2007,
-      "elementos": [
+      "date": 2007,
+      "afonsinos": [
         "feijao",
         "metralha",
         "pacu",
@@ -145,15 +161,15 @@
       ]
     },
     {
-      "geracao": 2008,
-      "elementos": [
+      "date": 2008,
+      "afonsinos": [
         "coito",
         "pisco"
       ]
     },
     {
-      "geracao": 2010,
-      "elementos": [
+      "date": 2010,
+      "afonsinos": [
         "barroso",
         "beirao",
         "clariminete",
@@ -162,8 +178,8 @@
       ]
     },
     {
-      "geracao": 2011,
-      "elementos": [
+      "date": 2011,
+      "afonsinos": [
         "herodes",
         "macadame",
         "ninha",
@@ -173,14 +189,14 @@
       ]
     },
     {
-      "geracao": 2013,
-      "elementos": [
+      "date": 2013,
+      "afonsinos": [
         "sabugo_chavez"
       ]
     },
     {
-      "geracao": 2014,
-      "elementos": [
+      "date": 2014,
+      "afonsinos": [
         "capao",
         "grelo",
         "murroide",
@@ -191,8 +207,8 @@
       ]
     },
     {
-      "geracao": 2015,
-      "elementos": [
+      "date": 2015,
+      "afonsinos": [
         "ginocanestene",
         "pita_shuarma",
         "topo",
@@ -202,8 +218,8 @@
       ]
     },
     {
-      "geracao": 2016,
-      "elementos": [
+      "date": 2016,
+      "afonsinos": [
         "catota",
         "panhanha",
         "petala",
@@ -212,8 +228,8 @@
       ]
     },
     {
-      "geracao": 2017,
-      "elementos": [
+      "date": 2017,
+      "afonsinos": [
         "malha_vacas",
         "sr_tronco",
         "telhos",
@@ -223,8 +239,8 @@
       ]
     },
     {
-      "geracao": 2018,
-      "elementos": [
+      "date": 2018,
+      "afonsinos": [
         "misto",
         "sr_cidade",
         "chupa",
@@ -235,8 +251,8 @@
       ]
     },
     {
-      "geracao": 2019,
-      "elementos": [
+      "date": 2019,
+      "afonsinos": [
         "quim_dividuo",
         "sr_padre",
         "sr_ambrosio",
@@ -244,8 +260,8 @@
       ]
     },
     {
-      "geracao": 2020,
-      "elementos": [
+      "date": 2020,
+      "afonsinos": [
         "chibata",
         "dragao_de_komossos",
         "lusco_fusco",
@@ -253,16 +269,16 @@
       ]
     },
     {
-      "geracao": 2021,
-      "elementos": [
+      "date": 2021,
+      "afonsinos": [
         "misso",
         "shiuvaca",
         "tigrao"
       ]
     },
     {
-      "geracao": 2022,
-      "elementos": [
+      "date": 2022,
+      "afonsinos": [
         "langonha",
         "sir_tanejo",
         "farelo",
@@ -270,8 +286,8 @@
       ]
     },
     {
-      "geracao": 2023,
-      "elementos": [
+      "date": 2023,
+      "afonsinos": [
         "aseugarb",
         "macho_pincho",
         "papa_primas",
@@ -286,8 +302,8 @@
       ]
     },
     {
-      "geracao": 2024,
-      "elementos": [
+      "date": 2024,
+      "afonsinos": [
         "camento",
         "salto_pancha"
       ]
