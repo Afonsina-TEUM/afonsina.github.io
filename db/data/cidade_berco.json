@@ -191,13 +191,14 @@
       "TUA",
       "TMP",
       "Tunadão 1998"
-    ]
+    ],
+    "sponsors": "xvi.jpg"
   },
   {
     "nome": "XVII Cidade Berço",
     "imagem": "xvii.jpg",
     "data": "17 e 18 de Março de 2023",
-    "playlist": "",
+    "playlist": "https://youtube.com/playlist?list=PLDBIxgVhQwAcyEEM7pHRaFyJTj6FnoDN2&si=jQyR8g9NP1dS0-J8",
     "tunas_concurso": [
       "TAISEP",
       "anTUNiA",
@@ -205,5 +206,31 @@
       "TUNA-MUS"
     ],
     "sponsors": "xvii.jpg"
+  },
+  {
+    "nome": "XVIII Cidade Berço",
+    "imagem": "xviii.jpg",
+    "data": "1 e 2 de Março de 2024",
+    "playlist": "https://www.youtube.com/watch?v=wbEWe0YB9bw&list=PLDBIxgVhQwAf7NMykZVT08D10IcZIvQ-F",
+    "tunas_concurso": [
+      "Tunadão 1998",
+      "TAL",
+      "Luz & Tuna",
+      "Desertuna"
+    ],
+    "sponsors": "xviii.jpg"
+  },
+  {
+    "nome": "XIX Cidade Berço",
+    "imagem": "xix.jpg",
+    "data": "7 e 8 de Março de 2025",
+    "playlist": "https://www.youtube.com/watch?v=wbEWe0YB9bw&list=PLDBIxgVhQwAf7NMykZVT08D10IcZIvQ-F",
+    "tunas_concurso": [
+      "FAN-Farra",
+      "Gatunos",
+      "TUIST",
+      "TAB"
+    ],
+    "sponsors": "xix.jpg"
   }
 ]
