@@ -232,5 +232,18 @@
       "TAB"
     ],
     "sponsors": "xix.jpg"
+  },
+  {
+    "nome": "XX Cidade Berço",
+    "imagem": "xx.jpg",
+    "data": "6 e 7 de Março de 2026",
+    "playlist": "https://www.youtube.com/playlist?list=PLDBIxgVhQwAem-IBOn7w7bLnm--Wn5aU0",
+    "tunas_concurso": [
+      "EStudantina Universitária de Lisboa",
+      "Estudantina Académica de Castelo Branco",
+      "Tuna TS",
+      "Estudantina Universitária dos Açores"
+    ],
+    "sponsors": "xx.jpg"
   }
 ]
